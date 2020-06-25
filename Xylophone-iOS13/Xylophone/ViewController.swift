@@ -9,6 +9,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
     }
 
+    
     @IBAction func keyPressed(_ sender: UIButton) {
         print("Start: \(sender.titleLabel!.text!)")
         sender.alpha = 0.5
@@ -23,8 +24,16 @@ class ViewController: UIViewController {
     
     func playSound(soundName:String) {
         let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
-        player = try! AVAudioPlayer(contentsOf: url!)
-        player.play()
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+            try AVAudioSession.sharedInstance().setActive(true)
+            
+            player = try! AVAudioPlayer(contentsOf: url!)
+            player.play()
+        } catch let error {
+            print(error.localizedDescription)
+        }
                 
     }
 }

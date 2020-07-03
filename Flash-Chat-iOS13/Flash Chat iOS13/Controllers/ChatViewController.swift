@@ -14,17 +14,82 @@ class ChatViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var messageTextfield: UITextField!
     
+    
+    let db = Firestore.firestore()
+    
+    // Setup messages array
+    var messages: [Message] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        title = "⚡️FlashChat"
+        tableView.dataSource = self
+        title = K.appName
         
         navigationItem.hidesBackButton = true
+        
+        // Allow the tableview to use the messagecell.xib
+        tableView.register(UINib(nibName: K.cellNibName, bundle: nil), forCellReuseIdentifier: K.cellIdentifier)
+        loadMessages()
     }
     
+    // Load messages with listener and sort by date/time.
+    func loadMessages(){
+        db.collection(K.FStore.collectionName)
+            .order(by: K.FStore.dateField)
+            .addSnapshotListener { (querySnapshot, error) in
+            self.messages = []
+            
+            if let e = error {
+                print("Error retrieving data from firestore")
+                print(e)
+            } else {
+                if let snapshotDocuments = querySnapshot?.documents {
+                    for doc in snapshotDocuments {
+                        print("DOC: \(doc)")
+                        let data = doc.data()
+                        if let messageSender = data[K.FStore.senderField] as? String, let messageBody = data[K.FStore.bodyField] as? String {
+                            let newMessage = Message(sender: messageSender, body: messageBody)
+                            self.messages.append(newMessage)
+                            
+                            
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                                let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+                                self.tableView.scrollToRow(at: indexPath, at: .top, animated: true)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    // Send data from the message text box
     @IBAction func sendPressed(_ sender: UIButton) {
+        
+        if let messageBody = messageTextfield.text, let messageSender = Auth.auth().currentUser?.email {
+            db.collection(K.FStore.collectionName).addDocument(data: [
+                K.FStore.senderField: messageSender,
+                K.FStore.bodyField: messageBody,
+                K.FStore.dateField: Date().timeIntervalSince1970
+            ]) { (error) in
+                if let e = error {
+                    print("Error with saving data to firestore")
+                    print(e)
+                } else {
+                    print("Success with saving data to firestore")
+                    
+                    // Run on the main thread since it updates UI
+                    DispatchQueue.main.async{
+                        self.messageTextfield.text = ""
+                    }
+                }
+            }
+        }
+        
     }
     
+    // Logout the user and return to the main screen
     @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
                 
         do {
@@ -36,5 +101,38 @@ class ChatViewController: UIViewController {
         }
           
     }
+    
+}
+
+extension ChatViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return messages.count
+    }
+    
+    // Gets called as many times as cells for each message
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let message = messages[indexPath.row]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.cellIdentifier, for: indexPath) as! MessageCell
+        cell.label.text = "\(messages[indexPath.row].body)"
+        
+        // This is a message from the current user
+        if message.sender == Auth.auth().currentUser?.email {
+            cell.leftImageView.isHidden = true
+            cell.rightImageView.isHidden = false
+            cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.lightPurple) // Change message colour
+            cell.label.textColor = UIColor(named: K.BrandColors.purple)
+        }
+        // This is from the other sender
+        else {
+            cell.leftImageView.isHidden = false
+            cell.rightImageView.isHidden = true
+            cell.messageBubble.backgroundColor = UIColor(named: K.BrandColors.purple)
+            cell.label.textColor = UIColor(named: K.BrandColors.lightPurple)
+        }
+        
+        return cell
+    }
+    
     
 }

@@ -17,13 +17,14 @@ class LoginViewController: UIViewController {
 
     @IBAction func loginPressed(_ sender: UIButton) {
         
+        // Login new user
         if let email = emailTextfield.text, let password = passwordTextfield.text {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if let e = error {
                     print(e.localizedDescription)
                 }
                 
-                self.performSegue(withIdentifier: "LoginToChat", sender: self)
+                self.performSegue(withIdentifier: K.loginSegue, sender: self)
             }
         }
     }

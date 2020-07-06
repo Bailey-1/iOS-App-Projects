@@ -19,77 +19,84 @@ class ViewController: UIViewController {
     
     @IBOutlet var operators: Array<UIButton>?
     
-    
     var calculatorBrain = CalculatorBrain()
+    
+    var lastButtonPressed: UIButton? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        resultsLabel.text = String(calculatorBrain.total)
-        // Do any additional setup after loading the view.
+        resultsLabel.text = "0"
+        calculatorBrain.delegate = self
     }
     
     // Used to build the string.
     @IBAction func numberButtonPressed(_ sender: UIButton) {
-        // First Number
-        if calculatorBrain.currentOperator == nil {
-            calculatorBrain.total += sender.currentTitle!
-            resultsLabel.text = calculatorBrain.total
-            
-        // if an operator is selected - second number
-        } else {
-            // Continue the calculation from the currently displayed answer
-            if calculatorBrain.total == "" {
-                calculatorBrain.total = resultsLabel.text!
-            }
-            clearOperators()
-            calculatorBrain.secondNumber += sender.currentTitle!
-            resultsLabel.text = calculatorBrain.secondNumber
-        }
-        print("Total: \(calculatorBrain.total)")
-        print("Second: \(calculatorBrain.secondNumber)")
-        print("Operator: \(calculatorBrain.currentOperator ?? "Nil")")
+        // reset for new calculation
+        calculatorBrain.numButtonPressed(buttonText: sender.currentTitle!)
+        printInfo()
+        lastButtonPressed = sender
     }
-    
     
     @IBAction func operationPressed(_ sender: UIButton) {
         // UI Stuff
-        clearOperators()
-        sender.backgroundColor = UIColor.white
-        sender.setTitleColor(UIColor.orange, for: .normal)
-        
-        if let currentOperator = sender.currentTitle {
-            calculatorBrain.currentOperator = currentOperator
-            
-            // Do subcalculation so you dont always have to press =
-            if calculatorBrain.total != "" && calculatorBrain.secondNumber != "" {
-                resultsLabel.text = calculatorBrain.calculate()
-                calculatorBrain.currentOperator = currentOperator
-            }
+        if let buttonText = sender.currentTitle {
+            calculatorBrain.operationButtonPressed(buttonText: buttonText)
         }
         
-        print("Total: \(calculatorBrain.total)")
-        print("Second: \(calculatorBrain.secondNumber)")
-        print("Operator: \(calculatorBrain.currentOperator ?? "Nil")")
+        sender.backgroundColor = UIColor.white
+        sender.setTitleColor(UIColor.orange, for: .normal)
+
+        printInfo()
+        lastButtonPressed = sender
     }
     
     
     @IBAction func ACButton(_ sender: UIButton) {
         calculatorBrain.clear()
-        clearOperators()
-        resultsLabel.text = ""
-        
+        lastButtonPressed = sender
+        printInfo()
     }
     
+    // Optional because it is used to clear some stuff
     @IBAction func equalsPressed(_ sender: UIButton?) {
-        clearOperators()
-        resultsLabel.text = calculatorBrain.calculate()
+        calculatorBrain.equalsCalculate()
+        lastButtonPressed = sender
     }
     
-    func clearOperators(){
+    @IBAction func invertNumPressed(_ sender: UIButton) {
+        calculatorBrain.invertNumber()
+        lastButtonPressed = sender
+    }
+    
+    @IBAction func percentageButton(_ sender: UIButton) {
+        calculatorBrain.percentage()
+        lastButtonPressed = sender
+    }
+    
+    func printInfo() {
+        print("Total: \(calculatorBrain.total)")
+        print("Second: \(calculatorBrain.secondNumber)")
+        print("Operator: \(calculatorBrain.currentOperator ?? "Nil")")
+    }
+}
+
+extension ViewController: CalculatorBrainDelegate {
+    func getLastButtonText() -> String {
+        return (lastButtonPressed?.currentTitle ?? "")
+    }
+    
+    func getResultsLabelVal() -> String {
+        return resultsLabel.text!
+    }
+    
+    func updateResultsLabel(result: String) {
+        resultsLabel.text = result
+    }
+    
+    func clearOperatorsUI(){
         for button in operators! {
             button.backgroundColor = UIColor.orange
             button.setTitleColor(UIColor.white, for: .normal)
         }
     }
-    
 }

@@ -26,6 +26,7 @@
 		D9341CB524B25E1B0084C309 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9341CB724B25E1B0084C309 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D9341CC024B2658B0084C309 /* CalculatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
+		D93986C924B3693C00634526 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +43,7 @@
 		D9341C9D24B25E1A0084C309 = {
 			isa = PBXGroup;
 			children = (
+				D93986C924B3693C00634526 /* README.md */,
 				D9341CA824B25E1A0084C309 /* MyCalculator */,
 				D9341CA724B25E1A0084C309 /* Products */,
 			);

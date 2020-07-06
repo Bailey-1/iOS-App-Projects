@@ -33,7 +33,6 @@ class ViewController: UIViewController {
     @IBAction func numberButtonPressed(_ sender: UIButton) {
         // reset for new calculation
         calculatorBrain.numButtonPressed(buttonText: sender.currentTitle!)
-        printInfo()
         lastButtonPressed = sender
     }
     
@@ -45,16 +44,12 @@ class ViewController: UIViewController {
         
         sender.backgroundColor = UIColor.white
         sender.setTitleColor(UIColor.orange, for: .normal)
-
-        printInfo()
         lastButtonPressed = sender
     }
-    
     
     @IBAction func ACButton(_ sender: UIButton) {
         calculatorBrain.clear()
         lastButtonPressed = sender
-        printInfo()
     }
     
     // Optional because it is used to clear some stuff
@@ -72,12 +67,6 @@ class ViewController: UIViewController {
         calculatorBrain.percentage()
         lastButtonPressed = sender
     }
-    
-    func printInfo() {
-        print("Total: \(calculatorBrain.total)")
-        print("Second: \(calculatorBrain.secondNumber)")
-        print("Operator: \(calculatorBrain.currentOperator ?? "Nil")")
-    }
 }
 
 extension ViewController: CalculatorBrainDelegate {
@@ -90,7 +79,10 @@ extension ViewController: CalculatorBrainDelegate {
     }
     
     func updateResultsLabel(result: String) {
-        resultsLabel.text = result
+        let formatter = NumberFormatter()
+        formatter.minimumFractionDigits = 0
+        formatter.maximumFractionDigits = 10
+        resultsLabel.text = formatter.string(from: Double(result)! as NSNumber) ?? "n/a"
     }
     
     func clearOperatorsUI(){

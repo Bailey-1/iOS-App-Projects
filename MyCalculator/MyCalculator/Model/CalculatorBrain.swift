@@ -16,20 +16,40 @@ struct CalculatorBrain {
     var currentOperator: String? = nil
     
     mutating func calculate() -> String {
-        
         switch currentOperator {
         case "+":
-            total = Double(firstNumber)! + Double(secondNumber)!
+            total = String(Double(total)! + Double(secondNumber)!)
             break
+            
+        case "-":
+            total = String(Double(total)! - Double(secondNumber)!)
+            break
+            
+        case "X":
+            total = String(Double(total)! * Double(secondNumber)!)
+            break
+            
+        case "/":
+            total = String(Double(total)! / Double(secondNumber)!)
+            break
+            
         default:
             print("ERROR")
             break
         }
         
-        currentOperator = ""
-        firstNumber = ""
         secondNumber = ""
+        currentOperator = nil
         
-        return String(total);
+        print("Total: \(total)")
+        print("Second: \(secondNumber)")
+        print("Operator: \(currentOperator ?? "Nil")")
+        return total;
+    }
+    
+    mutating func clear(){
+        total = "";
+        secondNumber = ""
+        currentOperator = nil
     }
 }

@@ -28,57 +28,68 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    
     // Used to build the string.
     @IBAction func numberButtonPressed(_ sender: UIButton) {
-        // if no operator is selected
-//        if calculatorBrain.currentOperator == nil {
-//            calculatorBrain.secondNumber += sender.currentTitle!
-//            resultsLabel.text = calculatorBrain.secondNumber
-//        } else {
-//            // if an operator is selected
-//            calculatorBrain.firstNumber += sender.currentTitle!
-//            resultsLabel.text = calculatorBrain.firstNumber
-//        }
-//        print("FirstNum: \(calculatorBrain.firstNumber )")
-//        print("SecondNum: \(calculatorBrain.secondNumber )")
-        
+        // First Number
         if calculatorBrain.currentOperator == nil {
-
+            calculatorBrain.total += sender.currentTitle!
+            resultsLabel.text = calculatorBrain.total
+            
+        // if an operator is selected - second number
+        } else {
+            // Continue the calculation from the currently displayed answer
+            if calculatorBrain.total == "" {
+                calculatorBrain.total = resultsLabel.text!
+            }
+            clearOperators()
+            calculatorBrain.secondNumber += sender.currentTitle!
+            resultsLabel.text = calculatorBrain.secondNumber
+        }
+        print("Total: \(calculatorBrain.total)")
+        print("Second: \(calculatorBrain.secondNumber)")
+        print("Operator: \(calculatorBrain.currentOperator ?? "Nil")")
     }
     
     
     @IBAction func operationPressed(_ sender: UIButton) {
         // UI Stuff
-        for button in operators! {
-            button.backgroundColor = UIColor.orange
-            button.setTitleColor(UIColor.white, for: .normal)
-        }
-        
+        clearOperators()
         sender.backgroundColor = UIColor.white
         sender.setTitleColor(UIColor.orange, for: .normal)
         
-        
         if let currentOperator = sender.currentTitle {
             calculatorBrain.currentOperator = currentOperator
+            
+            // Do subcalculation so you dont always have to press =
+            if calculatorBrain.total != "" && calculatorBrain.secondNumber != "" {
+                resultsLabel.text = calculatorBrain.calculate()
+                calculatorBrain.currentOperator = currentOperator
+            }
         }
+        
+        print("Total: \(calculatorBrain.total)")
+        print("Second: \(calculatorBrain.secondNumber)")
+        print("Operator: \(calculatorBrain.currentOperator ?? "Nil")")
     }
     
     
     @IBAction func ACButton(_ sender: UIButton) {
-        calculatorBrain.total = 0.0;
-        calculatorBrain.firstNumber = ""
-        calculatorBrain.secondNumber = ""
-        resultsLabel.text = calculatorBrain.firstNumber
+        calculatorBrain.clear()
+        clearOperators()
+        resultsLabel.text = ""
+        
     }
     
-    @IBAction func equalsPressed(_ sender: UIButton) {
+    @IBAction func equalsPressed(_ sender: UIButton?) {
+        clearOperators()
+        resultsLabel.text = calculatorBrain.calculate()
+    }
+    
+    func clearOperators(){
         for button in operators! {
             button.backgroundColor = UIColor.orange
             button.setTitleColor(UIColor.white, for: .normal)
         }
-        resultsLabel.text = calculatorBrain.calculate()
     }
     
 }
-

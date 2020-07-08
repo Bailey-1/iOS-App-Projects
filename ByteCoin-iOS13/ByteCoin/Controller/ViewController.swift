@@ -4,7 +4,7 @@
 //
 //  Created by Angela Yu on 11/09/2019.
 //  Copyright © 2019 The App Brewery. All rights reserved.
-// https://rest.coinapi.io/v1/exchangerate/BTC/GBP?apiKey=F8264F7D-195E-4429-8AA9-6BD15536EF36
+// https://rest.coinapi.io/v1/exchangerate/BTC/GBP?apiKey=
 
 import UIKit
 

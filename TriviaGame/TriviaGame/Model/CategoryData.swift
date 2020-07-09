@@ -9,7 +9,7 @@
 import Foundation
 
 struct CateogoryData: Decodable {
-    let trivia_categories: [Category]
+    var trivia_categories: [Category]
 }
 
 struct Category: Decodable {

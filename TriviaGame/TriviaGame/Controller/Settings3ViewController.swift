@@ -17,7 +17,9 @@ class Settings3ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //print(settingsOptions)
+        if let safeSettingsOptions = settingsOptions {
+            print(safeSettingsOptions)
+        }
     }
     
     @IBAction func segmentedControlChanged(_ sender: UISegmentedControl) {
@@ -25,6 +27,7 @@ class Settings3ViewController: UIViewController {
         
         switch(sender.selectedSegmentIndex) {
         case 0:
+            questionTypeSelected = nil
             break
             
         case 1:
@@ -51,7 +54,19 @@ class Settings3ViewController: UIViewController {
         sender.backgroundColor = UIColor.blue
         sender.setTitleColor(UIColor.black, for: .normal)
         
-        settingsOptions?.difficulty = sender.currentTitle!
+        switch(sender.currentTitle!){
+        case "Easy":
+            settingsOptions?.difficulty = "easy"
+            break
+        case "Medium":
+            settingsOptions?.difficulty = "medium"
+            break
+        case "Hard":
+            settingsOptions?.difficulty = "hard"
+            break
+        default:
+            settingsOptions?.difficulty = nil
+        }
     }
     
     @IBAction func startButtonPressed(_ sender: UIButton) {

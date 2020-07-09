@@ -22,7 +22,7 @@ class Settings2ViewController: UIViewController {
         categoryPicker.dataSource = self
         categoryPicker.delegate = self
         categoryPickerSelected.text = categories?.trivia_categories[settingsOptions!.category].name
-
+        print(settingsOptions!)
     }
     
     @IBAction func nextButtonPressed(_ sender: UIButton) {
@@ -54,7 +54,7 @@ extension Settings2ViewController: UIPickerViewDataSource, UIPickerViewDelegate 
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedOption = categories?.trivia_categories[row].name
-        settingsOptions?.category = row
+        settingsOptions?.category = categories!.trivia_categories[row].id
         if let safeOption = selectedOption {
             print(safeOption)
         }

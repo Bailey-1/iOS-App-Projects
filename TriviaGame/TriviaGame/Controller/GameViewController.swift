@@ -10,19 +10,20 @@ import UIKit
 
 class GameViewController: UIViewController {
     
-    @IBOutlet weak var multipleButtons: UIView!
-    @IBOutlet weak var booleanButtons: UIView!
+    @IBOutlet weak var multipleButtonView: UIView!
     
-    @IBOutlet var additionalButtons: [UIButton]!
-    
+    @IBOutlet weak var booleanButtonView: UIView!
     
     var settingsOptions: SettingsOptions?
+    
+    var gameManager = GameManager()
     
     // Hide navigationbar on the welcome screen
     override func viewWillAppear(_ animated: Bool) {
         // Always call super when overiding method from the super class
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        gameManager.delegate = self
     }
     
     // Unhide the navigation bar to show it on other screens
@@ -34,14 +35,21 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        multipleButtons.isHidden = true
         //print("FINAL DATA: \n\(settingsOptions)")
+        if let safeSettingsOptions = settingsOptions {
+            print(safeSettingsOptions)
+            gameManager.fetchQuizData(settingsOptions: safeSettingsOptions)
+        }
     }
     
     @IBAction func optionButtonPressed(_ sender: UIButton) {
         //print(sender.currentTitle)
-        booleanButtons.isHidden = !booleanButtons.isHidden
-        multipleButtons.isHidden = !multipleButtons.isHidden
 
+    }
+}
+
+extension GameViewController: GameManagerDelegate {
+    func updateUI() {
+        
     }
 }

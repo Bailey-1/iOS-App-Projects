@@ -17,11 +17,14 @@
 		D971836124B5E9CE00EA860F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D971835F24B5E9CE00EA860F /* Main.storyboard */; };
 		D971836324B5E9CE00EA860F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D971836224B5E9CE00EA860F /* Assets.xcassets */; };
 		D971836624B5E9CE00EA860F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D971836424B5E9CE00EA860F /* LaunchScreen.storyboard */; };
-		D971836F24B5FFF300EA860F /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971836E24B5FFF300EA860F /* SettingsController.swift */; };
 		D99608BE24B603F800E11C63 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99608BD24B603F800E11C63 /* SettingsModel.swift */; };
 		D9B89EBD24B6046E0090F8A1 /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B89EBC24B6046E0090F8A1 /* CategoryData.swift */; };
 		D9B89EBF24B60D5A0090F8A1 /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B89EBE24B60D5A0090F8A1 /* ControllerManager.swift */; };
 		D9BB184724B77C8B00D8E9C8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB184624B77C8B00D8E9C8 /* GameViewController.swift */; };
+		D9BB184C24B7A6F700D8E9C8 /* MultipleButtonsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB184B24B7A6F700D8E9C8 /* MultipleButtonsViewController.swift */; };
+		D9BB184E24B7A73C00D8E9C8 /* BooleanButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB184D24B7A73C00D8E9C8 /* BooleanButtonViewController.swift */; };
+		D9BB185024B7B03900D8E9C8 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB184F24B7B03900D8E9C8 /* GameManager.swift */; };
+		D9BB185224B7C6DB00D8E9C8 /* QuizData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB185124B7C6DB00D8E9C8 /* QuizData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,11 +40,14 @@
 		D971836224B5E9CE00EA860F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D971836524B5E9CE00EA860F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D971836724B5E9CE00EA860F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D971836E24B5FFF300EA860F /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		D99608BD24B603F800E11C63 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		D9B89EBC24B6046E0090F8A1 /* CategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
 		D9B89EBE24B60D5A0090F8A1 /* ControllerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
 		D9BB184624B77C8B00D8E9C8 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		D9BB184B24B7A6F700D8E9C8 /* MultipleButtonsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleButtonsViewController.swift; sourceTree = "<group>"; };
+		D9BB184D24B7A73C00D8E9C8 /* BooleanButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanButtonViewController.swift; sourceTree = "<group>"; };
+		D9BB184F24B7B03900D8E9C8 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
+		D9BB185124B7C6DB00D8E9C8 /* QuizData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,8 +96,8 @@
 		D971836D24B5FFCF00EA860F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D9BB184A24B7A6B400D8E9C8 /* Containers */,
 				D971835D24B5E9CE00EA860F /* ViewController.swift */,
-				D971836E24B5FFF300EA860F /* SettingsController.swift */,
 				D908AA1C24B630DB003C96BC /* SettingsViewController.swift */,
 				D908AA1E24B64446003C96BC /* Settings2ViewController.swift */,
 				D908AA2024B64469003C96BC /* Settings3ViewController.swift */,
@@ -106,6 +112,8 @@
 				D99608BD24B603F800E11C63 /* SettingsModel.swift */,
 				D9B89EBC24B6046E0090F8A1 /* CategoryData.swift */,
 				D9B89EBE24B60D5A0090F8A1 /* ControllerManager.swift */,
+				D9BB184F24B7B03900D8E9C8 /* GameManager.swift */,
+				D9BB185124B7C6DB00D8E9C8 /* QuizData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -116,6 +124,15 @@
 				D971835F24B5E9CE00EA860F /* Main.storyboard */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D9BB184A24B7A6B400D8E9C8 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				D9BB184B24B7A6F700D8E9C8 /* MultipleButtonsViewController.swift */,
+				D9BB184D24B7A73C00D8E9C8 /* BooleanButtonViewController.swift */,
+			);
+			path = Containers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,14 +209,17 @@
 				D9B89EBF24B60D5A0090F8A1 /* ControllerManager.swift in Sources */,
 				D971835E24B5E9CE00EA860F /* ViewController.swift in Sources */,
 				D908AA1F24B64446003C96BC /* Settings2ViewController.swift in Sources */,
+				D9BB185024B7B03900D8E9C8 /* GameManager.swift in Sources */,
 				D9B89EBD24B6046E0090F8A1 /* CategoryData.swift in Sources */,
+				D9BB184C24B7A6F700D8E9C8 /* MultipleButtonsViewController.swift in Sources */,
 				D9BB184724B77C8B00D8E9C8 /* GameViewController.swift in Sources */,
 				D99608BE24B603F800E11C63 /* SettingsModel.swift in Sources */,
-				D971836F24B5FFF300EA860F /* SettingsController.swift in Sources */,
+				D9BB184E24B7A73C00D8E9C8 /* BooleanButtonViewController.swift in Sources */,
 				D971835A24B5E9CE00EA860F /* AppDelegate.swift in Sources */,
 				D971835C24B5E9CE00EA860F /* SceneDelegate.swift in Sources */,
 				D908AA1B24B63003003C96BC /* Constants.swift in Sources */,
 				D908AA1D24B630DB003C96BC /* SettingsViewController.swift in Sources */,
+				D9BB185224B7C6DB00D8E9C8 /* QuizData.swift in Sources */,
 				D908AA2124B64469003C96BC /* Settings3ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D908AA1B24B63003003C96BC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908AA1A24B63003003C96BC /* Constants.swift */; };
+		D908AA1D24B630DB003C96BC /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908AA1C24B630DB003C96BC /* SettingsViewController.swift */; };
+		D908AA1F24B64446003C96BC /* Settings2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908AA1E24B64446003C96BC /* Settings2ViewController.swift */; };
+		D908AA2124B64469003C96BC /* Settings3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D908AA2024B64469003C96BC /* Settings3ViewController.swift */; };
 		D971835A24B5E9CE00EA860F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971835924B5E9CE00EA860F /* AppDelegate.swift */; };
 		D971835C24B5E9CE00EA860F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971835B24B5E9CE00EA860F /* SceneDelegate.swift */; };
 		D971835E24B5E9CE00EA860F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D971835D24B5E9CE00EA860F /* ViewController.swift */; };
@@ -17,9 +21,14 @@
 		D99608BE24B603F800E11C63 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99608BD24B603F800E11C63 /* SettingsModel.swift */; };
 		D9B89EBD24B6046E0090F8A1 /* CategoryData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B89EBC24B6046E0090F8A1 /* CategoryData.swift */; };
 		D9B89EBF24B60D5A0090F8A1 /* ControllerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B89EBE24B60D5A0090F8A1 /* ControllerManager.swift */; };
+		D9BB184724B77C8B00D8E9C8 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB184624B77C8B00D8E9C8 /* GameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D908AA1A24B63003003C96BC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D908AA1C24B630DB003C96BC /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		D908AA1E24B64446003C96BC /* Settings2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings2ViewController.swift; sourceTree = "<group>"; };
+		D908AA2024B64469003C96BC /* Settings3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings3ViewController.swift; sourceTree = "<group>"; };
 		D971835624B5E9CE00EA860F /* TriviaGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TriviaGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D971835924B5E9CE00EA860F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D971835B24B5E9CE00EA860F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -32,6 +41,7 @@
 		D99608BD24B603F800E11C63 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		D9B89EBC24B6046E0090F8A1 /* CategoryData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryData.swift; sourceTree = "<group>"; };
 		D9B89EBE24B60D5A0090F8A1 /* ControllerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllerManager.swift; sourceTree = "<group>"; };
+		D9BB184624B77C8B00D8E9C8 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +82,7 @@
 				D971836224B5E9CE00EA860F /* Assets.xcassets */,
 				D971836424B5E9CE00EA860F /* LaunchScreen.storyboard */,
 				D971836724B5E9CE00EA860F /* Info.plist */,
+				D908AA1A24B63003003C96BC /* Constants.swift */,
 			);
 			path = TriviaGame;
 			sourceTree = "<group>";
@@ -81,6 +92,10 @@
 			children = (
 				D971835D24B5E9CE00EA860F /* ViewController.swift */,
 				D971836E24B5FFF300EA860F /* SettingsController.swift */,
+				D908AA1C24B630DB003C96BC /* SettingsViewController.swift */,
+				D908AA1E24B64446003C96BC /* Settings2ViewController.swift */,
+				D908AA2024B64469003C96BC /* Settings3ViewController.swift */,
+				D9BB184624B77C8B00D8E9C8 /* GameViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -176,11 +191,16 @@
 			files = (
 				D9B89EBF24B60D5A0090F8A1 /* ControllerManager.swift in Sources */,
 				D971835E24B5E9CE00EA860F /* ViewController.swift in Sources */,
+				D908AA1F24B64446003C96BC /* Settings2ViewController.swift in Sources */,
 				D9B89EBD24B6046E0090F8A1 /* CategoryData.swift in Sources */,
+				D9BB184724B77C8B00D8E9C8 /* GameViewController.swift in Sources */,
 				D99608BE24B603F800E11C63 /* SettingsModel.swift in Sources */,
 				D971836F24B5FFF300EA860F /* SettingsController.swift in Sources */,
 				D971835A24B5E9CE00EA860F /* AppDelegate.swift in Sources */,
 				D971835C24B5E9CE00EA860F /* SceneDelegate.swift in Sources */,
+				D908AA1B24B63003003C96BC /* Constants.swift in Sources */,
+				D908AA1D24B630DB003C96BC /* SettingsViewController.swift in Sources */,
+				D908AA2124B64469003C96BC /* Settings3ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

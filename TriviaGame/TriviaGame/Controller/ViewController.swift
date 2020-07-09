@@ -38,14 +38,14 @@ class ViewController: UIViewController {
     
     @IBAction func startPressed(_ sender: UIButton) {
         
-        self.performSegue(withIdentifier: "showSettings", sender: self)
+        self.performSegue(withIdentifier: K.segue.showSettings1, sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showSettings" {
-            let destinationVC = segue.destination as! SettingsController //Chose the right view controller. - Downcasting
+        if segue.identifier == K.segue.showSettings1 {
+            //let destinationVC = segue.destination as! Settings1ViewController //Chose the right view controller. - Downcasting
             
-            destinationVC.categories = controllerManager.categories
+            //destinationVC.categories = controllerManager.categories
         }
     }
 }

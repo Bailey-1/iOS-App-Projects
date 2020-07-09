@@ -12,7 +12,13 @@ protocol SettingsModelDelegate {
 }
 
 struct SettingsModel {
-    var delegate: SettingsController?
-        
+    
 
+}
+
+struct SettingsOptions {
+    var numberOfQuestions: Int = 10
+    var difficulty: String?
+    var category: Int = 0
+    var type: String?
 }

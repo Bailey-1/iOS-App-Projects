@@ -23,7 +23,7 @@ class SettingsController: UIViewController {
         categoryPicker.dataSource = self
         categoryPicker.delegate = self
         
-        print("This is the Category Data \(categories)")
+        //print("This is the Category Data \(categories)")
     }
     
     @IBAction func numOfQuestionsStepper(_ sender: UIStepper) {
@@ -48,7 +48,6 @@ extension SettingsController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selectedCurrency = categories?.trivia_categories[row].name
-        print(selectedCurrency)
+        //let selectedCurrency = categories?.trivia_categories[row].name
     }
 }

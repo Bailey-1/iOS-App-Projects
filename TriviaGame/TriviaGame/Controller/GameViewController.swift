@@ -9,16 +9,17 @@
 import UIKit
 
 protocol GameViewControllerDelegate {
-    func updateUI(answers: [String])
+    func updateUI(answers: [Answers])
+    func clearUI()
 }
 
 class GameViewController: UIViewController {
     
     @IBOutlet weak var multipleButtonView: UIView!
-    
     @IBOutlet weak var booleanButtonView: UIView!
     
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet weak var questionProgressView: UIProgressView!
     
     var settingsOptions: SettingsOptions?
     
@@ -66,6 +67,11 @@ class GameViewController: UIViewController {
             let destinationVC = segue.destination as! BooleanButtonViewController //Chose the right view controller. - Downcasting
             destinationVC.delegate = self
             booleanDelegate = destinationVC
+            
+        } else if segue.identifier == K.segue.showEndScreen {
+            //let destinationVC = segue.destination as! EndScreenViewController //Chose the right view controller. - Downcasting
+
+            print("Going to end screen now")
         }
     }
     
@@ -86,27 +92,34 @@ class GameViewController: UIViewController {
 
 //MARK: - GameManagerDelegate
 extension GameViewController: GameManagerDelegate {
-    func updateUI(title: String, answers: [String], type: String) {
+    func updateUI(uiData: UIData) {
         DispatchQueue.main.async{
-            self.questionLabel.text = title
+            self.questionLabel.text = uiData.question.htmlAttributedString!.string
+            self.questionProgressView.setProgress(uiData.percentage, animated: true)
         }
         
-        if type == "multiple" {
-            multipleDelegate?.updateUI(answers: answers)
-            
-            Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(showMultiple), userInfo: nil, repeats: false)
+        if uiData.type == "multiple" {
+            multipleDelegate?.updateUI(answers: uiData.answers)
+            showMultiple()
+            //Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(showMultiple), userInfo: nil, repeats: false)
             
         } else {
-            booleanDelegate?.updateUI(answers: answers)
-            Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(showBoolean), userInfo: nil, repeats: false)
+            booleanDelegate?.updateUI(answers: uiData.answers)
+            showBoolean()
+            //Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(showBoolean), userInfo: nil, repeats: false)
         }
         
+    }
+    
+    func showEndScreen(){
+        self.performSegue(withIdentifier: K.segue.showEndScreen, sender: self)
     }
 }
 
 //MARK: - MultipleButtonViewControllerDelegate
 extension GameViewController: MultipleButtonViewControllerDelegate, BooleanButtonViewControllerDelegate {
     func submittedAnswer(answer: String) {
+        multipleDelegate?.clearUI()
         gameManager.questionAnswer(answer: answer)
     }
 }

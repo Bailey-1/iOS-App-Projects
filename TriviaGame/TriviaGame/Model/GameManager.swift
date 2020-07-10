@@ -9,7 +9,8 @@
 import Foundation
 
 protocol GameManagerDelegate {
-    func updateUI(title: String, answers: [String], type: String)
+    func updateUI(uiData: UIData)
+    func showEndScreen()
 }
 
 class GameManager {
@@ -50,7 +51,6 @@ class GameManager {
     }
     
     func nextQuestion(){
-        
         // Check the current number is under the max
         if let safeNumberOfQuestions = settingsOptions?.numberOfQuestions {
             if currentQuestionNumber < safeNumberOfQuestions {
@@ -59,16 +59,45 @@ class GameManager {
                 currentQuestion = quizData?.results[currentQuestionNumber]
                 if let safeQuestion = currentQuestion?.question {
                     
-                    var answerArray: [String] = [currentQuestion!.correct_answer]
-                    answerArray += currentQuestion!.incorrect_answers
+//                    var answerArray: [String] = [currentQuestion!.correct_answer]
+//                    answerArray += currentQuestion!.incorrect_answers
+//                    answerArray.shuffle()
+                    var answerArray: [Answers]
                     
-                    delegate?.updateUI(title: safeQuestion, answers: answerArray, type: currentQuestion!.type)
+                    if currentQuestion?.incorrect_answers.count == 1 {
+                        answerArray = [
+                            Answers(text: currentQuestion!.correct_answer, correct: true),
+                            Answers(text: currentQuestion!.incorrect_answers[0], correct: false),
+                        ]
+                    } else {
+                        answerArray = [
+                            Answers(text: currentQuestion!.correct_answer, correct: true),
+                            Answers(text: currentQuestion!.incorrect_answers[0], correct: false),
+                            Answers(text: currentQuestion!.incorrect_answers[1], correct: false),
+                            Answers(text: currentQuestion!.incorrect_answers[2], correct: false),
+                        ]
+                    }
+                    
+                    answerArray.shuffle()
+                    
+                    let questionPercentage = Float(currentQuestionNumber+1) / Float(settingsOptions!.numberOfQuestions)
+                    
+                    print("Percentage: \(questionPercentage)")
+                    
+                    let uiData = UIData(question: safeQuestion,
+                                        answers: answerArray,
+                                        percentage: questionPercentage,
+                                        type: currentQuestion!.type)
+                    
+                    
+                    delegate?.updateUI(uiData: uiData)
                     print("QUESTION: \(safeQuestion)")
                 }
                 currentQuestionNumber += 1
             } else {
                 print("Game Over")
                 print("Your score is \(currentUserScore) / \(settingsOptions!.numberOfQuestions)")
+                delegate?.showEndScreen()
             }
         }
         

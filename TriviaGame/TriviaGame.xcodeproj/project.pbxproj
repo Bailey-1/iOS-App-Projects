@@ -25,6 +25,7 @@
 		D9BB184E24B7A73C00D8E9C8 /* BooleanButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB184D24B7A73C00D8E9C8 /* BooleanButtonViewController.swift */; };
 		D9BB185024B7B03900D8E9C8 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB184F24B7B03900D8E9C8 /* GameManager.swift */; };
 		D9BB185224B7C6DB00D8E9C8 /* QuizData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB185124B7C6DB00D8E9C8 /* QuizData.swift */; };
+		D9EF1DF024B8BD93000605FF /* EndScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EF1DEF24B8BD93000605FF /* EndScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		D9BB184D24B7A73C00D8E9C8 /* BooleanButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanButtonViewController.swift; sourceTree = "<group>"; };
 		D9BB184F24B7B03900D8E9C8 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		D9BB185124B7C6DB00D8E9C8 /* QuizData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizData.swift; sourceTree = "<group>"; };
+		D9EF1DEF24B8BD93000605FF /* EndScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				D908AA1E24B64446003C96BC /* Settings2ViewController.swift */,
 				D908AA2024B64469003C96BC /* Settings3ViewController.swift */,
 				D9BB184624B77C8B00D8E9C8 /* GameViewController.swift */,
+				D9EF1DEF24B8BD93000605FF /* EndScreenViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				D908AA1B24B63003003C96BC /* Constants.swift in Sources */,
 				D908AA1D24B630DB003C96BC /* SettingsViewController.swift in Sources */,
 				D9BB185224B7C6DB00D8E9C8 /* QuizData.swift in Sources */,
+				D9EF1DF024B8BD93000605FF /* EndScreenViewController.swift in Sources */,
 				D908AA2124B64469003C96BC /* Settings3ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

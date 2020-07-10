@@ -22,3 +22,15 @@ struct SettingsOptions {
     var category: Int = 0
     var type: String?
 }
+
+struct UIData {
+    var question: String
+    var answers: [Answers]
+    var percentage: Float
+    var type: String
+}
+
+struct Answers {
+    var text: String
+    var correct: Bool
+}

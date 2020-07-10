@@ -52,7 +52,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="712" y="136"/>
+            <point key="canvasLocation" x="712" y="121"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HMl-0T-dmX">
@@ -68,7 +68,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4J2-Pk-Qea" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-474" y="136"/>
+            <point key="canvasLocation" x="-478" y="122"/>
         </scene>
         <!--Settings1 View Controller-->
         <scene sceneID="nlB-9G-Glu">
@@ -148,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ymf-Y7-e0Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1908.6956521739132" y="120.53571428571428"/>
+            <point key="canvasLocation" x="1749" y="122"/>
         </scene>
         <!--Settings2 View Controller-->
         <scene sceneID="tPQ-H3-njA">
@@ -407,13 +407,13 @@
                                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PVf-X4-cXv">
                                                 <rect key="frame" x="50" y="0.0" width="314" height="387"/>
                                                 <connections>
-                                                    <segue destination="VHr-Qw-vPQ" kind="embed" id="QaO-wU-WHn"/>
+                                                    <segue destination="VHr-Qw-vPQ" kind="embed" identifier="showBoolean" id="QaO-wU-WHn"/>
                                                 </connections>
                                             </containerView>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QUh-VL-djW">
                                                 <rect key="frame" x="50" y="0.0" width="314" height="387"/>
                                                 <connections>
-                                                    <segue destination="4pE-yx-jWZ" kind="embed" id="3bT-D0-tgZ"/>
+                                                    <segue destination="4pE-yx-jWZ" kind="embed" identifier="showMultiple" id="3bT-D0-tgZ"/>
                                                 </connections>
                                             </containerView>
                                         </subviews>
@@ -455,6 +455,7 @@
                     <connections>
                         <outlet property="booleanButtonView" destination="PVf-X4-cXv" id="1cM-FC-7Dq"/>
                         <outlet property="multipleButtonView" destination="QUh-VL-djW" id="S74-nw-jdp"/>
+                        <outlet property="questionLabel" destination="fCT-I0-Pgi" id="WA7-E4-Map"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lle-fT-n2g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -482,6 +483,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="answerButtonPressed:" destination="4pE-yx-jWZ" eventType="touchUpInside" id="FKB-UK-LJu"/>
                                             <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="7GC-ey-Qdr"/>
                                         </connections>
                                     </button>
@@ -495,6 +497,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="answerButtonPressed:" destination="4pE-yx-jWZ" eventType="touchUpInside" id="CTp-xr-KOg"/>
                                             <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="5ez-pP-Op1"/>
                                         </connections>
                                     </button>
@@ -508,6 +511,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="answerButtonPressed:" destination="4pE-yx-jWZ" eventType="touchUpInside" id="ZjR-v5-x6i"/>
                                             <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="WWH-hb-92y"/>
                                         </connections>
                                     </button>
@@ -521,6 +525,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="answerButtonPressed:" destination="4pE-yx-jWZ" eventType="touchUpInside" id="ErN-X9-JB4"/>
                                             <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="DQl-2D-xDx"/>
                                         </connections>
                                     </button>
@@ -534,7 +539,14 @@
                             <constraint firstItem="rfx-U2-b0p" firstAttribute="leading" secondItem="bfK-ft-OV6" secondAttribute="leading" id="TwS-sQ-qeK"/>
                             <constraint firstAttribute="trailing" secondItem="rfx-U2-b0p" secondAttribute="trailing" id="YbU-bM-Qhq"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="OuG-we-S3c"/>
                     </view>
+                    <connections>
+                        <outlet property="button1" destination="tXp-ZV-7F3" id="L2c-in-RF1"/>
+                        <outlet property="button2" destination="F7B-Yw-7t6" id="15m-fL-u2Q"/>
+                        <outlet property="button3" destination="LVZ-3O-WcZ" id="fSF-hO-hi9"/>
+                        <outlet property="button4" destination="v6L-v2-zhT" id="jVc-0A-TQX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yxC-8d-oYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -558,6 +570,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="answerButtonPressed:" destination="VHr-Qw-vPQ" eventType="touchUpInside" id="Y9k-8k-lX3"/>
                                             <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="iuY-rO-MgU"/>
                                         </connections>
                                     </button>
@@ -568,6 +581,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
+                                            <action selector="answerButtonPressed:" destination="VHr-Qw-vPQ" eventType="touchUpInside" id="7NN-6S-NrN"/>
                                             <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="klj-ce-1PK"/>
                                         </connections>
                                     </button>
@@ -591,7 +605,12 @@
                             <constraint firstAttribute="bottom" secondItem="WZE-l4-lNQ" secondAttribute="bottom" id="d1F-6f-ANN"/>
                             <constraint firstItem="WZE-l4-lNQ" firstAttribute="top" secondItem="pTu-kA-lNX" secondAttribute="top" id="qgV-Rx-cU0"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="rPo-0D-wfj"/>
                     </view>
+                    <connections>
+                        <outlet property="button1" destination="hAa-uD-yZU" id="F3R-V4-ZNg"/>
+                        <outlet property="button2" destination="0Hc-LJ-8wP" id="dUo-RO-q95"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yeq-GD-Cme" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

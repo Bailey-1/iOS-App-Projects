@@ -9,7 +9,7 @@
 import Foundation
 
 protocol GameManagerDelegate {
-    func updateUI()
+    func updateUI(title: String, answers: [String], type: String)
 }
 
 class GameManager {
@@ -22,6 +22,7 @@ class GameManager {
     
     var currentQuestion: QuestionData?
     var currentQuestionNumber: Int = 0
+    var currentUserScore: Int = 0
     
     func fetchQuizData(settingsOptions: SettingsOptions){
         let quizURL = generateURL(settingsOptions: settingsOptions)
@@ -56,9 +57,33 @@ class GameManager {
                 
                 // Increment the current question
                 currentQuestion = quizData?.results[currentQuestionNumber]
+                if let safeQuestion = currentQuestion?.question {
+                    
+                    var answerArray: [String] = [currentQuestion!.correct_answer]
+                    answerArray += currentQuestion!.incorrect_answers
+                    
+                    delegate?.updateUI(title: safeQuestion, answers: answerArray, type: currentQuestion!.type)
+                    print("QUESTION: \(safeQuestion)")
+                }
+                currentQuestionNumber += 1
+            } else {
+                print("Game Over")
+                print("Your score is \(currentUserScore) / \(settingsOptions!.numberOfQuestions)")
             }
         }
         
+    }
+    
+    func questionAnswer(answer: String) {
+        if let safeCorrectAnswer = currentQuestion?.correct_answer {
+            if answer == safeCorrectAnswer {
+                print("Correct Answer!")
+                currentUserScore += 1
+            } else {
+                print("Wrong Answer")
+            }
+        }
+        nextQuestion()
     }
     
     func generateURL(settingsOptions: SettingsOptions) -> String {

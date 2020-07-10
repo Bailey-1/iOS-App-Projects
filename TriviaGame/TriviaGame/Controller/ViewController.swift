@@ -9,11 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-    
-    var categories: [CateogoryData]?
-    
-    let controllerManager = ControllerManager()
-    
+            
     // Hide navigationbar on the welcome screen
     override func viewWillAppear(_ animated: Bool) {
         // Always call super when overiding method from the super class
@@ -31,8 +27,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        controllerManager.getCategories()
     }
     
     

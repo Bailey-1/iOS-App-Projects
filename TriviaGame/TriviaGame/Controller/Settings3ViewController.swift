@@ -31,11 +31,11 @@ class Settings3ViewController: UIViewController {
             break
             
         case 1:
-            questionTypeSelected = "multiple"
+            questionTypeSelected = "boolean"
             break
             
         case 2:
-            questionTypeSelected = "boolean"
+            questionTypeSelected = "multiple"
             break
         default:
             print("ERROR")

@@ -15,6 +15,10 @@ struct K {
         static let showSettings1 = "showSettings1"
         static let showSettings2 = "showSettings2"
         static let showSettings3 = "showSettings3"
-        static let showGame = "showGame" 
+        static let showGame = "showGame"
+        struct containers {
+            static let showMultiple = "showMultiple"
+            static let showBoolean = "showBoolean"
+        }
     }
 }

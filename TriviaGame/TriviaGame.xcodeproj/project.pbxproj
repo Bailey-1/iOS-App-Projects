@@ -25,6 +25,7 @@
 		D9BB184E24B7A73C00D8E9C8 /* BooleanButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB184D24B7A73C00D8E9C8 /* BooleanButtonViewController.swift */; };
 		D9BB185024B7B03900D8E9C8 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB184F24B7B03900D8E9C8 /* GameManager.swift */; };
 		D9BB185224B7C6DB00D8E9C8 /* QuizData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BB185124B7C6DB00D8E9C8 /* QuizData.swift */; };
+		D9DABA4524BA706A00333340 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = D9DABA4424BA706A00333340 /* README.md */; };
 		D9EF1DF024B8BD93000605FF /* EndScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9EF1DEF24B8BD93000605FF /* EndScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		D9BB184D24B7A73C00D8E9C8 /* BooleanButtonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooleanButtonViewController.swift; sourceTree = "<group>"; };
 		D9BB184F24B7B03900D8E9C8 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		D9BB185124B7C6DB00D8E9C8 /* QuizData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizData.swift; sourceTree = "<group>"; };
+		D9DABA4424BA706A00333340 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		D9EF1DEF24B8BD93000605FF /* EndScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -66,6 +68,7 @@
 		D971834D24B5E9CE00EA860F = {
 			isa = PBXGroup;
 			children = (
+				D9DABA4424BA706A00333340 /* README.md */,
 				D971835824B5E9CE00EA860F /* TriviaGame */,
 				D971835724B5E9CE00EA860F /* Products */,
 			);
@@ -198,6 +201,7 @@
 			files = (
 				D971836624B5E9CE00EA860F /* LaunchScreen.storyboard in Resources */,
 				D971836324B5E9CE00EA860F /* Assets.xcassets in Resources */,
+				D9DABA4524BA706A00333340 /* README.md in Resources */,
 				D971836124B5E9CE00EA860F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

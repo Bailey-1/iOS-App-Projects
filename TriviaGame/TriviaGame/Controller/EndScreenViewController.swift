@@ -15,8 +15,7 @@ class EndScreenViewController: UIViewController {
     }
     
     @IBAction func homeButtonPressed(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: {});
-        self.navigationController?.popViewController(animated: true);
+        self.view.window!.rootViewController?.dismiss(animated: false, completion: nil)
         
     }
 }

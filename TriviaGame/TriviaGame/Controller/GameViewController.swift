@@ -123,6 +123,3 @@ extension GameViewController: MultipleButtonViewControllerDelegate, BooleanButto
         gameManager.questionAnswer(answer: answer)
     }
 }
-
-// Create segue and pass data to it such as self for the delegate future me
-

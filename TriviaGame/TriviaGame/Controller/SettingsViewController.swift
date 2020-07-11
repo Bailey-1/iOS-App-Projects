@@ -18,6 +18,18 @@ class Settings1ViewController: UIViewController {
     
     let controllerManager = ControllerManager()
     var categories: CateogoryData?
+    
+    override func viewWillAppear(_ animated: Bool) {
+        // Always call super when overiding method from the super class
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        // Always call super when overiding method from the super class
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +37,8 @@ class Settings1ViewController: UIViewController {
         settingsOptions.numberOfQuestions = 10
         
         controllerManager.getCategories()
+        
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "Color-1")]
     }
     @IBAction func stepperChanged(_ sender: UIStepper) {
         settingsOptions.numberOfQuestions = Int(sender.value)
@@ -44,4 +58,6 @@ class Settings1ViewController: UIViewController {
             destinationVC.categories = categories
         }
     }
+    
+    @IBAction func unwindToTwo(_ sender: UIStoryboardSegue){}
 }

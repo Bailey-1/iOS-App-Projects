@@ -37,43 +37,45 @@ class MultipleButtonViewController: UIViewController {
         for answer in self.answers {
             if sender.currentTitle == answer.text {
                 if answer.correct == true {
-                    sender.backgroundColor = UIColor.green
-                    sender.setTitleColor(UIColor.black, for: .normal)
+//                    sender.backgroundColor = UIColor.green
+//                    sender.setTitleColor(UIColor.black, for: .normal)
                     
-//                    DispatchQueue.main.async {
-//                        sender.backgroundColor = UIColor.green
-//                        sender.setTitleColor(UIColor.black, for: .normal)
-//                    }
+                    DispatchQueue.main.async {
+                        sender.backgroundColor = UIColor.green
+                        sender.setTitleColor(UIColor.black, for: .normal)
+                    }
                 } else {
-                    sender.backgroundColor = UIColor.red
-                    sender.setTitleColor(UIColor.black, for: .normal)
+//                    sender.backgroundColor = UIColor.red
+//                    sender.setTitleColor(UIColor.black, for: .normal)
                     
-//                    DispatchQueue.main.async {
-//                        sender.backgroundColor = UIColor.red
-//                        sender.setTitleColor(UIColor.black, for: .normal)
-//                    }
+                    DispatchQueue.main.async {
+                        sender.backgroundColor = UIColor.red
+                        sender.setTitleColor(UIColor.black, for: .normal)
+                    }
                 }
             }
         }
         
         userAnswer = sender.currentTitle!
         
-        Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(sendAnswer), userInfo: nil, repeats: false)
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(sendAnswer), userInfo: nil, repeats: false)
     }
     
     @objc func sendAnswer(){
         delegate?.submittedAnswer(answer: userAnswer)
-        self.button1.backgroundColor = UIColor.black
-        self.button1.setTitleColor(UIColor.white, for: .normal)
-        
-        self.button2.backgroundColor = UIColor.black
-        self.button2.setTitleColor(UIColor.white, for: .normal)
-        
-        self.button3.backgroundColor = UIColor.black
-        self.button3.setTitleColor(UIColor.white, for: .normal)
-        
-        self.button4.backgroundColor = UIColor.black
-        self.button4.setTitleColor(UIColor.white, for: .normal)
+        DispatchQueue.main.async {
+            self.button1.backgroundColor = UIColor.black
+            self.button1.setTitleColor(UIColor.white, for: .normal)
+            
+            self.button2.backgroundColor = UIColor.black
+            self.button2.setTitleColor(UIColor.white, for: .normal)
+            
+            self.button3.backgroundColor = UIColor.black
+            self.button3.setTitleColor(UIColor.white, for: .normal)
+            
+            self.button4.backgroundColor = UIColor.black
+            self.button4.setTitleColor(UIColor.white, for: .normal)
+        }
     }
 }
 

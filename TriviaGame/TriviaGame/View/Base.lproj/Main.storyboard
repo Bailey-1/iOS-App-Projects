@@ -477,19 +477,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xpu-Fu-nOV">
-                                        <rect key="frame" x="80" y="0.0" width="254.5" height="105"/>
+                                        <rect key="frame" x="80" y="0.0" width="254.5" height="146.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="50"/>
                                         <color key="textColor" name="Color-1"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4/10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CcA-Bw-VbZ">
-                                        <rect key="frame" x="108" y="105" width="198" height="420"/>
+                                        <rect key="frame" x="108" y="146.5" width="198" height="510.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="100"/>
                                         <color key="textColor" name="Color-1"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="133" translatesAutoresizingMaskIntoConstraints="NO" id="RoI-do-JxI">
-                                        <rect key="frame" x="50" y="525" width="314" height="283"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="RoI-do-JxI">
+                                        <rect key="frame" x="50" y="657" width="314" height="151"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iJx-Tf-epX">
                                                 <rect key="frame" x="0.0" y="0.0" width="314" height="75"/>
@@ -508,7 +508,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QU2-b7-gRt">
-                                                <rect key="frame" x="0.0" y="208" width="314" height="75"/>
+                                                <rect key="frame" x="0.0" y="76" width="314" height="75"/>
                                                 <color key="backgroundColor" name="Color-1"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="75" id="MYX-qU-Bmf"/>
@@ -543,6 +543,9 @@
                         <viewLayoutGuide key="safeArea" id="jC8-Uv-HXv"/>
                     </view>
                     <navigationItem key="navigationItem" id="gUv-Ft-yar"/>
+                    <connections>
+                        <outlet property="scoreLabel" destination="CcA-Bw-VbZ" id="aoW-4r-dpv"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qk2-xi-l1N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="d62-OC-WBJ" userLabel="Exit" sceneMemberID="exit"/>
@@ -560,7 +563,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="rfx-U2-b0p">
                                 <rect key="frame" x="0.0" y="0.0" width="314" height="361"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tXp-ZV-7F3">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="tXp-ZV-7F3">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="89.5"/>
                                         <color key="backgroundColor" name="Color-1"/>
                                         <constraints>
@@ -574,7 +577,7 @@
                                             <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="7GC-ey-Qdr"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F7B-Yw-7t6">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="F7B-Yw-7t6">
                                         <rect key="frame" x="0.0" y="90.5" width="314" height="89.5"/>
                                         <color key="backgroundColor" name="Color-1"/>
                                         <constraints>
@@ -588,7 +591,7 @@
                                             <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="5ez-pP-Op1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LVZ-3O-WcZ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="LVZ-3O-WcZ">
                                         <rect key="frame" x="0.0" y="181" width="314" height="89.5"/>
                                         <color key="backgroundColor" name="Color-1"/>
                                         <constraints>
@@ -602,7 +605,7 @@
                                             <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="WWH-hb-92y"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6L-v2-zhT">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="v6L-v2-zhT">
                                         <rect key="frame" x="0.0" y="271.5" width="314" height="89.5"/>
                                         <color key="backgroundColor" name="Color-1"/>
                                         <constraints>
@@ -633,6 +636,10 @@
                         <outlet property="button2" destination="F7B-Yw-7t6" id="15m-fL-u2Q"/>
                         <outlet property="button3" destination="LVZ-3O-WcZ" id="fSF-hO-hi9"/>
                         <outlet property="button4" destination="v6L-v2-zhT" id="jVc-0A-TQX"/>
+                        <outletCollection property="allButtons" destination="tXp-ZV-7F3" collectionClass="NSMutableArray" id="eac-AV-WRA"/>
+                        <outletCollection property="allButtons" destination="F7B-Yw-7t6" collectionClass="NSMutableArray" id="86W-e7-26T"/>
+                        <outletCollection property="allButtons" destination="LVZ-3O-WcZ" collectionClass="NSMutableArray" id="L3V-Qy-r71"/>
+                        <outletCollection property="allButtons" destination="v6L-v2-zhT" collectionClass="NSMutableArray" id="JTH-Ig-Gwn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yxC-8d-oYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -697,6 +704,8 @@
                     <connections>
                         <outlet property="button1" destination="hAa-uD-yZU" id="F3R-V4-ZNg"/>
                         <outlet property="button2" destination="0Hc-LJ-8wP" id="dUo-RO-q95"/>
+                        <outletCollection property="allButtons" destination="hAa-uD-yZU" collectionClass="NSMutableArray" id="o8X-vY-s5f"/>
+                        <outletCollection property="allButtons" destination="0Hc-LJ-8wP" collectionClass="NSMutableArray" id="4wk-Xm-5yM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yeq-GD-Cme" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

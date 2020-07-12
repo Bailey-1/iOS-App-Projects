@@ -17,18 +17,37 @@ class BooleanButtonViewController: UIViewController {
     @IBOutlet weak var button1: UIButton!
     @IBOutlet weak var button2: UIButton!
     
+    // Define a collection for both buttons
+    @IBOutlet var allButtons: [UIButton]!
+    
+    // Set up delegate so this class can call a method in GameViewController for when the button is pressed.
     var delegate: BooleanButtonViewControllerDelegate?
+    
     var answers: [Answers] = [Answers(text: "", correct: false),
                               Answers(text: "", correct: false)]
     
     var userAnswer: String = ""
-    
+    var selectedAnswer: UIButton?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
+        
+        if selectedAnswer == nil {
+            selectedAnswer = sender
+        } else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            for button in self.allButtons {
+                button.isEnabled = false
+            }
+        }
+        
         for answer in self.answers {
             if sender.currentTitle == answer.text {
                 if answer.correct == true {
@@ -68,9 +87,13 @@ extension BooleanButtonViewController: GameViewControllerDelegate {
     
     func updateUI(answers: [Answers]) {
         self.answers = answers
-//        DispatchQueue.main.async {
-//            self.button1.setTitle(answers[0].text, for: .normal)
-//            self.button2.setTitle(answers[1].text, for: .normal)
-//        }
+        
+        selectedAnswer = nil
+        
+        DispatchQueue.main.async {
+            for button in self.allButtons {
+                button.isEnabled = true
+            }
+        }
     }
 }

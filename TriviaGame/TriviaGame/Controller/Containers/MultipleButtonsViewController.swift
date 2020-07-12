@@ -19,6 +19,10 @@ class MultipleButtonViewController: UIViewController {
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
     
+    @IBOutlet var allButtons: [UIButton]!
+    
+    var selectedAnswer: UIButton?
+    
     var userAnswer: String = ""
     
     var delegate: MultipleButtonViewControllerDelegate?
@@ -34,6 +38,19 @@ class MultipleButtonViewController: UIViewController {
     }
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
+        
+        if selectedAnswer == nil {
+            selectedAnswer = sender
+        } else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            for button in self.allButtons {
+                button.isEnabled = false
+            }
+        }
+
         for answer in self.answers {
             if sender.currentTitle == answer.text {
                 if answer.correct == true {
@@ -83,11 +100,16 @@ extension MultipleButtonViewController: GameViewControllerDelegate {
     func updateUI(answers: [Answers]) {
         self.answers = answers
         DispatchQueue.main.async {
+            for button in self.allButtons {
+                button.isEnabled = true
+            }
+            
             self.button1.setTitle(answers[0].text.htmlAttributedString!.string, for: .normal)
             self.button2.setTitle(answers[1].text.htmlAttributedString!.string, for: .normal)
             self.button3.setTitle(answers[2].text.htmlAttributedString!.string, for: .normal)
             self.button4.setTitle(answers[3].text.htmlAttributedString!.string, for: .normal)
         }
+        selectedAnswer = nil
     }
     
     func clearUI(){

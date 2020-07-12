@@ -104,15 +104,19 @@ class GameManager {
     }
     
     func questionAnswer(answer: String) {
-        if let safeCorrectAnswer = currentQuestion?.correct_answer {
-            if answer == safeCorrectAnswer {
-                print("Correct Answer!")
-                currentUserScore += 1
-            } else {
-                print("Wrong Answer")
+        if let safeIncorrectAnswers = currentQuestion?.incorrect_answers {
+            if let safeCorrectAnswer = currentQuestion?.correct_answer {
+                if (safeCorrectAnswer == answer || safeIncorrectAnswers.contains(answer)){
+                    if answer == safeCorrectAnswer {
+                        print("Correct Answer!")
+                        currentUserScore += 1
+                    } else {
+                        print("Wrong Answer")
+                    }
+                    nextQuestion()
+                }
             }
         }
-        nextQuestion()
     }
     
     func generateURL(settingsOptions: SettingsOptions) -> String {

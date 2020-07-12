@@ -69,9 +69,11 @@ class GameViewController: UIViewController {
             booleanDelegate = destinationVC
             
         } else if segue.identifier == K.segue.showEndScreen {
-            //let destinationVC = segue.destination as! EndScreenViewController //Chose the right view controller. - Downcasting
+            let destinationVC = segue.destination as! EndScreenViewController //Chose the right view controller. - Downcasting
 
             print("Going to end screen now")
+            destinationVC.total = settingsOptions!.numberOfQuestions
+            destinationVC.correctNumber = gameManager.currentUserScore
         }
     }
     
@@ -119,6 +121,7 @@ extension GameViewController: GameManagerDelegate {
 //MARK: - MultipleButtonViewControllerDelegate
 extension GameViewController: MultipleButtonViewControllerDelegate, BooleanButtonViewControllerDelegate {
     func submittedAnswer(answer: String) {
+        
         multipleDelegate?.clearUI()
         gameManager.questionAnswer(answer: answer)
     }

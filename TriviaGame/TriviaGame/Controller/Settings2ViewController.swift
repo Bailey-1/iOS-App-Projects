@@ -9,18 +9,28 @@
 import UIKit
 
 class Settings2ViewController: UIViewController {
- 
-    var settingsOptions: SettingsOptions?
-    var categories: CateogoryData?
 
     @IBOutlet weak var categoryPicker: UIPickerView!
     @IBOutlet weak var categoryPickerSelected: UILabel!
+    
+    @IBOutlet weak var totalLable: UILabel!
+    @IBOutlet weak var easyLabel: UILabel!
+    @IBOutlet weak var mediumLabel: UILabel!
+    @IBOutlet weak var hardLabel: UILabel!
+    
+    
+    var settingsOptions: SettingsOptions?
+    var categories: CateogoryData?
+    var categoriesManager: CategoriesManager?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         categoryPicker.dataSource = self
         categoryPicker.delegate = self
+        
+        categoriesManager?.delegate = self
+        
         categoryPickerSelected.text = categories?.trivia_categories[settingsOptions!.category].name
         print(settingsOptions!)
     }
@@ -55,10 +65,27 @@ extension Settings2ViewController: UIPickerViewDataSource, UIPickerViewDelegate 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selectedOption = categories?.trivia_categories[row].name
         settingsOptions?.category = categories!.trivia_categories[row].id
-        if let safeOption = selectedOption {
-            print(safeOption)
+        if settingsOptions?.category != 0 {
+            categoriesManager!.getCategoriesStats(catId: settingsOptions!.category)
+        } else {
+            DispatchQueue.main.async {
+                self.easyLabel.text = ""
+                self.mediumLabel.text = ""
+                self.hardLabel.text = ""
+            }
         }
-        
+
         categoryPickerSelected.text = selectedOption
+
+    }
+}
+
+extension Settings2ViewController: CategoriesManagerDelegate {
+    func updateCategoryStatsLabels() {
+        DispatchQueue.main.async {
+            self.easyLabel.text = "Easy: \(self.categoriesManager!.categoryStats!.category_question_count.total_easy_question_count)"
+            self.mediumLabel.text = "Medium: \(self.categoriesManager!.categoryStats!.category_question_count.total_medium_question_count)"
+            self.hardLabel.text = "Hard: \(self.categoriesManager!.categoryStats!.category_question_count.total_hard_question_count)"
+        }
     }
 }

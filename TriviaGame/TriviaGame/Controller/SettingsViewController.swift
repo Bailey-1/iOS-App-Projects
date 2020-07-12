@@ -16,7 +16,7 @@ class Settings1ViewController: UIViewController {
     
     @IBOutlet weak var numberOfQuestionsStepper: UIStepper!
     
-    let controllerManager = ControllerManager()
+    let categoriesManager = CategoriesManager()
     var categories: CateogoryData?
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +36,7 @@ class Settings1ViewController: UIViewController {
         numberOfQuestionsStepper.value = 10
         settingsOptions.numberOfQuestions = 10
         
-        controllerManager.getCategories()
+        categoriesManager.getCategories()
         
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "Color-1")]
     }
@@ -46,7 +46,7 @@ class Settings1ViewController: UIViewController {
     }
     
     @IBAction func nextPressed(_ sender: UIButton) {
-        categories = controllerManager.categories
+        categories = categoriesManager.categories
         self.performSegue(withIdentifier: K.segue.showSettings2, sender: self)
     }
     
@@ -56,6 +56,7 @@ class Settings1ViewController: UIViewController {
             
             destinationVC.settingsOptions = settingsOptions
             destinationVC.categories = categories
+            destinationVC.categoriesManager = categoriesManager
         }
     }
     

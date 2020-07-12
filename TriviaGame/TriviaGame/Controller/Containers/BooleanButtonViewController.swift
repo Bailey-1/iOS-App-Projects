@@ -23,10 +23,11 @@ class BooleanButtonViewController: UIViewController {
     // Set up delegate so this class can call a method in GameViewController for when the button is pressed.
     var delegate: BooleanButtonViewControllerDelegate?
     
+    // Create an array for possible answers with the text for the label and the correct bool for if it is correct or not
+    // Used for UI colours
     var answers: [Answers] = [Answers(text: "", correct: false),
                               Answers(text: "", correct: false)]
-    
-    var userAnswer: String = ""
+        
     var selectedAnswer: UIButton?
 
     override func viewDidLoad() {
@@ -36,18 +37,22 @@ class BooleanButtonViewController: UIViewController {
     
     @IBAction func answerButtonPressed(_ sender: UIButton) {
         
+        // Use this to block any sequential button presses after the first
+        // Stops buttons being pressed for next questions
         if selectedAnswer == nil {
             selectedAnswer = sender
         } else {
             return
         }
         
-        DispatchQueue.main.async {
-            for button in self.allButtons {
-                button.isEnabled = false
-            }
-        }
+        // Stop buttons from being pressed maybe not required
+//        DispatchQueue.main.async {
+//            for button in self.allButtons {
+//                button.isEnabled = false
+//            }
+//        }
         
+        // Check if the answer was correct and change UI accordingly
         for answer in self.answers {
             if sender.currentTitle == answer.text {
                 if answer.correct == true {
@@ -63,13 +68,16 @@ class BooleanButtonViewController: UIViewController {
                 }
             }
         }
-        userAnswer = sender.currentTitle!
         
+        // Set a timer to a function to send the answer and change UI back to normal
         Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(sendAnswer), userInfo: nil, repeats: false)
     }
     
     @objc func sendAnswer(){
-        delegate?.submittedAnswer(answer: userAnswer)
+        // Submit answer to GameViewController
+        delegate?.submittedAnswer(answer: selectedAnswer!.currentTitle!)
+        
+        // Set UI back to normal
         DispatchQueue.main.async {
             self.button1.backgroundColor = UIColor.black
             self.button1.setTitleColor(UIColor.white, for: .normal)
@@ -82,18 +90,20 @@ class BooleanButtonViewController: UIViewController {
 
 extension BooleanButtonViewController: GameViewControllerDelegate {
     func clearUI() {
-        
+        // Not required since true and false stay in the same buttons
     }
     
+    // Allow GameViewController to update Answers a
     func updateUI(answers: [Answers]) {
         self.answers = answers
         
+        // Allow user to press and submit a button again
         selectedAnswer = nil
         
-        DispatchQueue.main.async {
-            for button in self.allButtons {
-                button.isEnabled = true
-            }
-        }
+//        DispatchQueue.main.async {
+//            for button in self.allButtons {
+//                button.isEnabled = true
+//            }
+//        }
     }
 }

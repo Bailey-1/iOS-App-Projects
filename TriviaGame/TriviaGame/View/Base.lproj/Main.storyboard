@@ -150,18 +150,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jfE-hR-TV6">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="jfE-hR-TV6">
                                 <rect key="frame" x="0.0" y="140" width="414" height="722"/>
                                 <subviews>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2b-TY-33M">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="431"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="457"/>
                                     </pickerView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPY-aO-d9R">
-                                        <rect key="frame" x="182" y="431" width="50" height="216"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" name="Color-1"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="0ol-4G-Msj">
+                                        <rect key="frame" x="174" y="477" width="66.5" height="150"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPY-aO-d9R">
+                                                <rect key="frame" x="0.0" y="0.0" width="66.5" height="37.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="Color-1"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fJ-RQ-R1y">
+                                                <rect key="frame" x="0.0" y="37.5" width="66.5" height="37.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="Color-1"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Medium:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UYI-xw-2xs">
+                                                <rect key="frame" x="0.0" y="75" width="66.5" height="37.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="Color-1"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hard:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ita-Vb-YKM">
+                                                <rect key="frame" x="0.0" y="112.5" width="66.5" height="37.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" name="Color-1"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="150" id="Bic-oK-Upm"/>
+                                        </constraints>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZWU-My-WaM">
                                         <rect key="frame" x="50" y="647" width="314" height="75"/>
                                         <color key="backgroundColor" name="Color-1"/>
@@ -181,6 +207,7 @@
                                 <constraints>
                                     <constraint firstItem="o2b-TY-33M" firstAttribute="leading" secondItem="jfE-hR-TV6" secondAttribute="leading" id="2Y4-Kc-VA3"/>
                                     <constraint firstAttribute="trailing" secondItem="ZWU-My-WaM" secondAttribute="trailing" constant="50" id="VO5-By-CjX"/>
+                                    <constraint firstItem="0ol-4G-Msj" firstAttribute="centerX" secondItem="jfE-hR-TV6" secondAttribute="centerX" id="WU2-Wf-RYz"/>
                                     <constraint firstAttribute="trailing" secondItem="o2b-TY-33M" secondAttribute="trailing" id="Yyi-XQ-Ts9"/>
                                     <constraint firstItem="ZWU-My-WaM" firstAttribute="leading" secondItem="jfE-hR-TV6" secondAttribute="leading" constant="50" id="jAM-MI-RDY"/>
                                 </constraints>
@@ -201,6 +228,10 @@
                     <connections>
                         <outlet property="categoryPicker" destination="o2b-TY-33M" id="5Wa-X5-hv9"/>
                         <outlet property="categoryPickerSelected" destination="QPY-aO-d9R" id="FMh-aU-acb"/>
+                        <outlet property="easyLabel" destination="7fJ-RQ-R1y" id="XDB-kl-aJE"/>
+                        <outlet property="hardLabel" destination="Ita-Vb-YKM" id="GTC-hr-Wbn"/>
+                        <outlet property="mediumLabel" destination="UYI-xw-2xs" id="ERa-Em-0r7"/>
+                        <outlet property="totalLable" destination="QPY-aO-d9R" id="PWQ-6e-9jF"/>
                         <segue destination="bTs-Do-V29" kind="show" identifier="showSettings3" id="4HK-OE-70N"/>
                     </connections>
                 </viewController>
@@ -574,7 +605,6 @@
                                         </state>
                                         <connections>
                                             <action selector="answerButtonPressed:" destination="4pE-yx-jWZ" eventType="touchUpInside" id="FKB-UK-LJu"/>
-                                            <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="7GC-ey-Qdr"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="F7B-Yw-7t6">
@@ -588,7 +618,6 @@
                                         </state>
                                         <connections>
                                             <action selector="answerButtonPressed:" destination="4pE-yx-jWZ" eventType="touchUpInside" id="CTp-xr-KOg"/>
-                                            <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="5ez-pP-Op1"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="LVZ-3O-WcZ">
@@ -602,7 +631,6 @@
                                         </state>
                                         <connections>
                                             <action selector="answerButtonPressed:" destination="4pE-yx-jWZ" eventType="touchUpInside" id="ZjR-v5-x6i"/>
-                                            <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="WWH-hb-92y"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="v6L-v2-zhT">
@@ -616,7 +644,6 @@
                                         </state>
                                         <connections>
                                             <action selector="answerButtonPressed:" destination="4pE-yx-jWZ" eventType="touchUpInside" id="ErN-X9-JB4"/>
-                                            <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="DQl-2D-xDx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -665,7 +692,6 @@
                                         </state>
                                         <connections>
                                             <action selector="answerButtonPressed:" destination="VHr-Qw-vPQ" eventType="touchUpInside" id="Y9k-8k-lX3"/>
-                                            <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="iuY-rO-MgU"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Hc-LJ-8wP">
@@ -676,7 +702,6 @@
                                         </state>
                                         <connections>
                                             <action selector="answerButtonPressed:" destination="VHr-Qw-vPQ" eventType="touchUpInside" id="7NN-6S-NrN"/>
-                                            <action selector="optionButtonPressed:" destination="iMj-gC-l2v" eventType="touchUpInside" id="klj-ce-1PK"/>
                                         </connections>
                                     </button>
                                 </subviews>

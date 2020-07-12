@@ -15,6 +15,7 @@ protocol GameViewControllerDelegate {
 
 class GameViewController: UIViewController {
     
+    // Link views to the two type of answer options
     @IBOutlet weak var multipleButtonView: UIView!
     @IBOutlet weak var booleanButtonView: UIView!
     
@@ -45,18 +46,14 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //print("FINAL DATA: \n\(settingsOptions)")
+        // Pass settings data to the gameManger
         if let safeSettingsOptions = settingsOptions {
             print(safeSettingsOptions)
             gameManager.fetchQuizData(settingsOptions: safeSettingsOptions)
         }
     }
     
-    @IBAction func optionButtonPressed(_ sender: UIButton) {
-        //print(sender.currentTitle)
-
-    }
-    
+    // Send data to view controllers
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.segue.containers.showMultiple {
             let destinationVC = segue.destination as! MultipleButtonViewController //Chose the right view controller. - Downcasting
@@ -95,11 +92,13 @@ class GameViewController: UIViewController {
 //MARK: - GameManagerDelegate
 extension GameViewController: GameManagerDelegate {
     func updateUI(uiData: UIData) {
+        // Update main UI
         DispatchQueue.main.async{
             self.questionLabel.text = uiData.question.htmlAttributedString!.string
             self.questionProgressView.setProgress(uiData.percentage, animated: true)
         }
         
+        // Update Button UI and show the correct view
         if uiData.type == "multiple" {
             multipleDelegate?.updateUI(answers: uiData.answers)
             showMultiple()
@@ -113,16 +112,20 @@ extension GameViewController: GameManagerDelegate {
         
     }
     
+    // Show screen at the end of the game
     func showEndScreen(){
-        self.performSegue(withIdentifier: K.segue.showEndScreen, sender: self)
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: K.segue.showEndScreen, sender: self)
+        }
     }
 }
 
 //MARK: - MultipleButtonViewControllerDelegate
+// Extension used by two protocols to return data from the button viewcontrollers to the main gameManger instance.
 extension GameViewController: MultipleButtonViewControllerDelegate, BooleanButtonViewControllerDelegate {
     func submittedAnswer(answer: String) {
         
-        multipleDelegate?.clearUI()
+        //multipleDelegate?.clearUI()
         gameManager.questionAnswer(answer: answer)
     }
 }

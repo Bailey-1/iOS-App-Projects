@@ -7,19 +7,50 @@
 //
 
 import UIKit
-import CoreData
+import RealmSwift
+import ChameleonFramework
 
-class CategoryViewController: UITableViewController {
-
-    var categories = [Category]()
+class CategoryViewController: SwipeTableViewController {
     
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    let realm = try! Realm()
+    var categories: Results<Category>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         loadCategories()
+        tableView.separatorStyle = .none
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateNavBarColor(backgroundColor: UIColor.systemBlue)
+        
+//        guard let navBar = navigationController?.navigationBar else {fatalError("Navigation controller does not exist")}
+//        let bar = UINavigationBarAppearance()
+//        bar.backgroundColor = UIColor.systemBlue
+//        navBar.standardAppearance = bar
+//        navBar.compactAppearance = bar
+//        navBar.scrollEdgeAppearance = bar
+    }
+    
+    //MARK: - Delete Data from Swipe
+    
+    override func updateModel(at indexPath: IndexPath) {
+        if let categoryForDeletion = self.categories?[indexPath.row]{
+            do {
+                try self.realm.write{
+                    self.realm.delete(categoryForDeletion)
+                }
+            } catch {
+                print(error)
+            }
+        }
+    }
+    
+    
+    //MARK: - Add New Categories
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         
@@ -27,10 +58,11 @@ class CategoryViewController: UITableViewController {
         
         let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add", style: .default) { (action) in
-            let newCategory = Category(context: self.context)
+            let newCategory = Category()
             newCategory.name = textField.text!
-            self.categories.append(newCategory)
-            self.saveCategories()
+            newCategory.hexBackgroundColor = UIColor.randomFlat().hexValue()
+            print(newCategory.hexBackgroundColor)
+            self.save(category: newCategory)
         }
         
         alert.addAction(action)
@@ -45,13 +77,19 @@ class CategoryViewController: UITableViewController {
     //MARK: - TableView Datasource Methods
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return categories?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // goes into super class and triggers method
+        let cell = super.tableView(tableView, cellForRowAt: indexPath)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath)
-        cell.textLabel?.text = categories[indexPath.row].name
+        cell.textLabel?.text = categories?[indexPath.row].name ?? "No categories added yet"
+        cell.backgroundColor = UIColor(hexString: categories?[indexPath.row].hexBackgroundColor ?? "FFFFFF")
+        cell.textLabel?.textColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true)
+        cell.accessoryType = .disclosureIndicator
+        cell.tintColor = ContrastColorOf(cell.backgroundColor!, returnFlat: true)
+        
         return cell
     }
     
@@ -65,15 +103,17 @@ class CategoryViewController: UITableViewController {
         let destinationVC = segue.destination as! ToDoListViewController
         
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedCategory = categories[indexPath.row]
+            destinationVC.selectedCategory = categories?[indexPath.row]
         }
     }
     
     //MARK: - Data Manipulation Methods
     
-    func saveCategories(){
+    func save(category: Category){
         do {
-            try context.save()
+            try realm.write {
+                realm.add(category)
+            }
         } catch {
             print(error)
         }
@@ -82,14 +122,8 @@ class CategoryViewController: UITableViewController {
     }
     
     func loadCategories(){
-        let request: NSFetchRequest<Category> = Category.fetchRequest()
-        
-        do {
-            categories = try context.fetch(request)
-        } catch {
-            print(error)
-        }
-        
+        // get all Category objects in the database
+        categories = realm.objects(Category.self)
         tableView.reloadData()
     }
 }

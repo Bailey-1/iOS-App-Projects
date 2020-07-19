@@ -19,17 +19,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-        
-        let data = Data()
-        data.name = "Bailey"
-        data.age = 40
-        
+
+        // Initalise new realm
         do {
-            let realm = try Realm()
-            try realm.write{
-                realm.add(data)
-            }
-            
+            _ = try Realm()
         } catch {
             print(error)
         }

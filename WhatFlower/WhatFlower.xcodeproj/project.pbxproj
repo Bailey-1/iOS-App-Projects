@@ -7,31 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D94A4C1C24D340A000C3380D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4C1B24D340A000C3380D /* AppDelegate.swift */; };
-		D94A4C1E24D340A000C3380D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4C1D24D340A000C3380D /* SceneDelegate.swift */; };
-		D94A4C2024D340A000C3380D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D94A4C1F24D340A000C3380D /* ViewController.swift */; };
-		D94A4C2324D340A000C3380D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D94A4C2124D340A000C3380D /* Main.storyboard */; };
-		D94A4C2524D340A200C3380D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D94A4C2424D340A200C3380D /* Assets.xcassets */; };
-		D94A4C2824D340A200C3380D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D94A4C2624D340A200C3380D /* LaunchScreen.storyboard */; };
-		D94A4C3024D3419300C3380D /* Inceptionv3.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D94A4C2F24D3419300C3380D /* Inceptionv3.mlmodel */; };
-		D9CAEE1724D363CA00EFD4ED /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D9CAEE1624D363CA00EFD4ED /* Resnet50.mlmodel */; };
+		D9661D4124D45BBB006818DC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9661D4024D45BBB006818DC /* AppDelegate.swift */; };
+		D9661D4324D45BBB006818DC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9661D4224D45BBB006818DC /* SceneDelegate.swift */; };
+		D9661D4524D45BBB006818DC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9661D4424D45BBB006818DC /* ViewController.swift */; };
+		D9661D4824D45BBB006818DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9661D4624D45BBB006818DC /* Main.storyboard */; };
+		D9661D4A24D45BBC006818DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9661D4924D45BBC006818DC /* Assets.xcassets */; };
+		D9661D4D24D45BBC006818DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9661D4B24D45BBC006818DC /* LaunchScreen.storyboard */; };
+		D9661D5524D45BE0006818DC /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = D9661D5424D45BE0006818DC /* FlowerClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D94A4C1824D340A000C3380D /* SeeFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeeFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		D94A4C1B24D340A000C3380D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D94A4C1D24D340A000C3380D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D94A4C1F24D340A000C3380D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D94A4C2224D340A000C3380D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D94A4C2424D340A200C3380D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		D94A4C2724D340A200C3380D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D94A4C2924D340A200C3380D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D94A4C2F24D3419300C3380D /* Inceptionv3.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Inceptionv3.mlmodel; sourceTree = "<group>"; };
-		D9CAEE1624D363CA00EFD4ED /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
+		D9661D3D24D45BBB006818DC /* WhatFlower.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatFlower.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9661D4024D45BBB006818DC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D9661D4224D45BBB006818DC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D9661D4424D45BBB006818DC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D9661D4724D45BBB006818DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D9661D4924D45BBC006818DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9661D4C24D45BBC006818DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D9661D4E24D45BBC006818DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9661D5424D45BE0006818DC /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = FlowerClassifier.mlmodel; path = "../../Enviroments/Flower Classifier/FlowerClassifier.mlmodel"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		D94A4C1524D340A000C3380D /* Frameworks */ = {
+		D9661D3A24D45BBB006818DC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,74 +39,73 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D94A4C0F24D3409F00C3380D = {
+		D9661D3424D45BBB006818DC = {
 			isa = PBXGroup;
 			children = (
-				D94A4C1A24D340A000C3380D /* SeeFood */,
-				D94A4C1924D340A000C3380D /* Products */,
+				D9661D3F24D45BBB006818DC /* WhatFlower */,
+				D9661D3E24D45BBB006818DC /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		D94A4C1924D340A000C3380D /* Products */ = {
+		D9661D3E24D45BBB006818DC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D94A4C1824D340A000C3380D /* SeeFood.app */,
+				D9661D3D24D45BBB006818DC /* WhatFlower.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		D94A4C1A24D340A000C3380D /* SeeFood */ = {
+		D9661D3F24D45BBB006818DC /* WhatFlower */ = {
 			isa = PBXGroup;
 			children = (
-				D94A4C1B24D340A000C3380D /* AppDelegate.swift */,
-				D94A4C1D24D340A000C3380D /* SceneDelegate.swift */,
-				D94A4C1F24D340A000C3380D /* ViewController.swift */,
-				D94A4C2124D340A000C3380D /* Main.storyboard */,
-				D94A4C2424D340A200C3380D /* Assets.xcassets */,
-				D94A4C2624D340A200C3380D /* LaunchScreen.storyboard */,
-				D94A4C2924D340A200C3380D /* Info.plist */,
-				D94A4C2F24D3419300C3380D /* Inceptionv3.mlmodel */,
-				D9CAEE1624D363CA00EFD4ED /* Resnet50.mlmodel */,
+				D9661D4024D45BBB006818DC /* AppDelegate.swift */,
+				D9661D4224D45BBB006818DC /* SceneDelegate.swift */,
+				D9661D4424D45BBB006818DC /* ViewController.swift */,
+				D9661D4624D45BBB006818DC /* Main.storyboard */,
+				D9661D4924D45BBC006818DC /* Assets.xcassets */,
+				D9661D4B24D45BBC006818DC /* LaunchScreen.storyboard */,
+				D9661D4E24D45BBC006818DC /* Info.plist */,
+				D9661D5424D45BE0006818DC /* FlowerClassifier.mlmodel */,
 			);
-			path = SeeFood;
+			path = WhatFlower;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		D94A4C1724D340A000C3380D /* SeeFood */ = {
+		D9661D3C24D45BBB006818DC /* WhatFlower */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D94A4C2C24D340A200C3380D /* Build configuration list for PBXNativeTarget "SeeFood" */;
+			buildConfigurationList = D9661D5124D45BBC006818DC /* Build configuration list for PBXNativeTarget "WhatFlower" */;
 			buildPhases = (
-				D94A4C1424D340A000C3380D /* Sources */,
-				D94A4C1524D340A000C3380D /* Frameworks */,
-				D94A4C1624D340A000C3380D /* Resources */,
+				D9661D3924D45BBB006818DC /* Sources */,
+				D9661D3A24D45BBB006818DC /* Frameworks */,
+				D9661D3B24D45BBB006818DC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SeeFood;
-			productName = SeeFood;
-			productReference = D94A4C1824D340A000C3380D /* SeeFood.app */;
+			name = WhatFlower;
+			productName = WhatFlower;
+			productReference = D9661D3D24D45BBB006818DC /* WhatFlower.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		D94A4C1024D3409F00C3380D /* Project object */ = {
+		D9661D3524D45BBB006818DC /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1160;
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Bailey Search";
 				TargetAttributes = {
-					D94A4C1724D340A000C3380D = {
+					D9661D3C24D45BBB006818DC = {
 						CreatedOnToolsVersion = 11.6;
 					};
 				};
 			};
-			buildConfigurationList = D94A4C1324D3409F00C3380D /* Build configuration list for PBXProject "SeeFood" */;
+			buildConfigurationList = D9661D3824D45BBB006818DC /* Build configuration list for PBXProject "WhatFlower" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -116,57 +113,56 @@
 				en,
 				Base,
 			);
-			mainGroup = D94A4C0F24D3409F00C3380D;
-			productRefGroup = D94A4C1924D340A000C3380D /* Products */;
+			mainGroup = D9661D3424D45BBB006818DC;
+			productRefGroup = D9661D3E24D45BBB006818DC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D94A4C1724D340A000C3380D /* SeeFood */,
+				D9661D3C24D45BBB006818DC /* WhatFlower */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		D94A4C1624D340A000C3380D /* Resources */ = {
+		D9661D3B24D45BBB006818DC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D94A4C2824D340A200C3380D /* LaunchScreen.storyboard in Resources */,
-				D94A4C2524D340A200C3380D /* Assets.xcassets in Resources */,
-				D94A4C2324D340A000C3380D /* Main.storyboard in Resources */,
+				D9661D4D24D45BBC006818DC /* LaunchScreen.storyboard in Resources */,
+				D9661D4A24D45BBC006818DC /* Assets.xcassets in Resources */,
+				D9661D4824D45BBB006818DC /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D94A4C1424D340A000C3380D /* Sources */ = {
+		D9661D3924D45BBB006818DC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D9CAEE1724D363CA00EFD4ED /* Resnet50.mlmodel in Sources */,
-				D94A4C2024D340A000C3380D /* ViewController.swift in Sources */,
-				D94A4C3024D3419300C3380D /* Inceptionv3.mlmodel in Sources */,
-				D94A4C1C24D340A000C3380D /* AppDelegate.swift in Sources */,
-				D94A4C1E24D340A000C3380D /* SceneDelegate.swift in Sources */,
+				D9661D5524D45BE0006818DC /* FlowerClassifier.mlmodel in Sources */,
+				D9661D4524D45BBB006818DC /* ViewController.swift in Sources */,
+				D9661D4124D45BBB006818DC /* AppDelegate.swift in Sources */,
+				D9661D4324D45BBB006818DC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		D94A4C2124D340A000C3380D /* Main.storyboard */ = {
+		D9661D4624D45BBB006818DC /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D94A4C2224D340A000C3380D /* Base */,
+				D9661D4724D45BBB006818DC /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		D94A4C2624D340A200C3380D /* LaunchScreen.storyboard */ = {
+		D9661D4B24D45BBC006818DC /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				D94A4C2724D340A200C3380D /* Base */,
+				D9661D4C24D45BBC006818DC /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -174,7 +170,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		D94A4C2A24D340A200C3380D /* Debug */ = {
+		D9661D4F24D45BBC006818DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -234,7 +230,7 @@
 			};
 			name = Debug;
 		};
-		D94A4C2B24D340A200C3380D /* Release */ = {
+		D9661D5024D45BBC006818DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -288,37 +284,41 @@
 			};
 			name = Release;
 		};
-		D94A4C2D24D340A200C3380D /* Debug */ = {
+		D9661D5224D45BBC006818DC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 934323UZXY;
-				INFOPLIST_FILE = SeeFood/Info.plist;
+				INFOPLIST_FILE = WhatFlower/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.baileysearch.SeeFood;
+				PRODUCT_BUNDLE_IDENTIFIER = io.baileysearch.WhatFlower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		D94A4C2E24D340A200C3380D /* Release */ = {
+		D9661D5324D45BBC006818DC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 934323UZXY;
-				INFOPLIST_FILE = SeeFood/Info.plist;
+				INFOPLIST_FILE = WhatFlower/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.baileysearch.SeeFood;
+				PRODUCT_BUNDLE_IDENTIFIER = io.baileysearch.WhatFlower;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -327,25 +327,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		D94A4C1324D3409F00C3380D /* Build configuration list for PBXProject "SeeFood" */ = {
+		D9661D3824D45BBB006818DC /* Build configuration list for PBXProject "WhatFlower" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D94A4C2A24D340A200C3380D /* Debug */,
-				D94A4C2B24D340A200C3380D /* Release */,
+				D9661D4F24D45BBC006818DC /* Debug */,
+				D9661D5024D45BBC006818DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D94A4C2C24D340A200C3380D /* Build configuration list for PBXNativeTarget "SeeFood" */ = {
+		D9661D5124D45BBC006818DC /* Build configuration list for PBXNativeTarget "WhatFlower" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D94A4C2D24D340A200C3380D /* Debug */,
-				D94A4C2E24D340A200C3380D /* Release */,
+				D9661D5224D45BBC006818DC /* Debug */,
+				D9661D5324D45BBC006818DC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = D94A4C1024D3409F00C3380D /* Project object */;
+	rootObject = D9661D3524D45BBB006818DC /* Project object */;
 }

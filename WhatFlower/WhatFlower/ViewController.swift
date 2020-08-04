@@ -1,8 +1,8 @@
 //
 //  ViewController.swift
-//  SeeFood
+//  WhatFlower
 //
-//  Created by Bailey Search on 30/07/2020.
+//  Created by Bailey Search on 31/07/2020.
 //  Copyright © 2020 Bailey Search. All rights reserved.
 //
 
@@ -11,20 +11,19 @@ import CoreML
 import Vision
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
-    @IBOutlet weak var imageView: UIImageView!
+    
     let imagePicker = UIImagePickerController()
+    
+    @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         imagePicker.delegate = self
-        imagePicker.sourceType = .camera
         imagePicker.allowsEditing = false
-        
+        imagePicker.sourceType = .camera
     }
-
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let safeImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             imageView.image = safeImage
@@ -39,8 +38,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func detect(image: CIImage) {
-        guard let model = try? VNCoreMLModel(for: Inceptionv3().model) else {
-        //guard let model = try? VNCoreMLModel(for: Resnet50().model) else {
+        guard let model = try? VNCoreMLModel(for: FlowerClassifier().model) else {
+            //guard let model = try? VNCoreMLModel(for: Resnet50().model) else {
             fatalError("Loading CoreML model failed.")
         }
         
@@ -71,7 +70,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         }
     }
     
-    @IBAction func cameraButtonPressed(_ sender: UIBarButtonItem) {
-        present(imagePicker, animated: true, completion: nil)
-    }
+        @IBAction func cameraButtonPressed(_ sender: UIBarButtonItem) {
+            present(imagePicker, animated: true, completion: nil)
+        }
 }
+

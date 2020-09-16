@@ -1,0 +1,4 @@
+b1c5c657c96c2f69bbec66856d794994c3cdaf9c 229147347 FlowerClassifier.mlmodel
+83b07be72ed45dcd1abd09b8a3c5a1cb41d9d0f0 94704130 Inceptionv3.mlmodel
+da9c9a2dcdbc9eff0ed0c708197c108ad48571d8 102586812 Resnet50.mlmodel
+3cb52e58b8de29ae86eac287d41a3d6e28a7eb6e 229146041 oxford102.caffemodel
